@@ -1,44 +1,45 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * _printf - print formatted text
- * @format: first
- * Return: number of characters printed
+ * _printf - printf function
+ * @format: const char pointer
+ * Return: b_len
  */
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int s = 0;
-	va_list list;
+	int (*pfunc)(va_list, flags_t *);
+	const char *p;
+	va_list arguments;
+	flags_t flags = {0, 0, 0};
 
-	va_start(list, format);
+	register int count = 0;
 
-	while (format[i])
+	va_start(arguments, format);
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = format; *p; p++)
 	{
-		if (format[i] == '%')
+		if (*p == '%')
 		{
-			i++;
-			if (format[i] == 'c')
-				s = fmt_char(va_arg(list, int));
-			else if (format[i] == 's')
-				s = fmt_str(va_arg(list, char *));
-			else if (format[i] == '%')
+			p++;
+			if (*p == '%')
 			{
-				_putchar('%');
-				s -= 1;
+				count += _putchar('%');
+				continue;
 			}
-			else
-			{
-				_putchar('%');
-				_putchar(format[i]);
-			}
-			i++;
-		}
-		_putchar(format[i]);
-		i++;
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
+			count += (pfunc)
+				? pfunc(arguments, &flags)
+				: _printf("%%%c", *p);
+		} else
+			count += _putchar(*p);
 	}
-	va_end(list);
-	return (i + s);
+	_putchar(-1);
+	va_end(arguments);
+	return (count);
 }
