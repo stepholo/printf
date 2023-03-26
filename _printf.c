@@ -1,50 +1,44 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _printf - prints formatted data to stdout
- * @format: string that contains the format to print
- * Return: number of characters written
+ * _printf - print formatted text
+ * @format: first
+ * Return: number of characters printed
  */
-int _printf(char *format, ...)
-{
-	int written = 0, (*structype)(char *, va_list);
-	char q[3];
-	va_list pa;
 
-	if (format == NULL)
-		return (-1);
-	q[2] = '\0';
-	va_start(pa, format);
-	_putchar(-1);
-	while (format[0])
+int _printf(const char *format, ...)
+{
+	int i = 0;
+	int s = 0;
+	va_list list;
+
+	va_start(list, format);
+
+	while (format[i])
 	{
-		if (format[0] == '%')
+		if (format[i] == '%')
 		{
-			structype = driver(format);
-			if (structype)
+			i++;
+			if (format[i] == 'c')
+				s = fmt_char(va_arg(list, int));
+			else if (format[i] == 's')
+				s = fmt_str(va_arg(list, char *));
+			else if (format[i] == '%')
 			{
-				q[0] = '%';
-				q[1] = format[1];
-				written += structype(q, pa);
-			}
-			else if (format[1] != '\0')
-			{
-				written += _putchar('%');
-				written += _putchar(format[1]);
+				_putchar('%');
+				s -= 1;
 			}
 			else
 			{
-				written += _putchar('%');
-				break;
+				_putchar('%');
+				_putchar(format[i]);
 			}
-			format += 2;
+			i++;
 		}
-		else
-		{
-			written += _putchar(format[0]);
-			format++;
-		}
+		_putchar(format[i]);
+		i++;
 	}
-	_putchar(-2);
-	return (written);
+	va_end(list);
+	return (i + s);
 }
