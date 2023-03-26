@@ -1,25 +1,29 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdarg.h>
 #include <stddef.h>
-#include <stdlib.h>
+
+#ifndef STRUCT_H
+#define STRUCT_H
 
 /**
- * struct structprint - structure containing
- * @q: the location and method to translate data to characters.
- * @u: print function for specific type.
- *
- * Return: int
+ * struct fmt - struct to print format data
+ * @c: character identifier
+ * @fmtr: fomater function
  */
-typedef struct structprint
-{
-	char *q;
-	int (*u)(char *format, va_list);
-} structype;
 
-int _putchar(char ch);
-int (*driver(char *format))(char *format, va_list);
-int _printf(char *format, ...);
+typedef struct fmt
+{
+	char c;
+	void (*fmtr)(char *);
+} fmt_c;
+
+#endif
+
+int _putchar(char c);
+int _printf(const char *format, ...);
+int fmt_str(char *c);
+int fmt_char(int c);
 
 #endif
