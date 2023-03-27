@@ -8,7 +8,7 @@
  *
  * Return: integer
  */
-int _printc(char *format,va_list list)
+int _printc(char *format, va_list list)
 {
 (void)format;
 _putchar(va_arg(list, int));
@@ -23,7 +23,7 @@ return (0);
  *
  * Return: string
  */
-void _prints(char *format,va_list list)
+void _prints(char *format, va_list list)
 {
 char *str;
 str = va_arg(list, char *);
@@ -39,7 +39,7 @@ _puts(str);
  * _percent - print percentage
  * @format: formart
  * @list: argument
- * 
+ *
  *
  * Return: percent
  */

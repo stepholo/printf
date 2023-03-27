@@ -3,7 +3,7 @@
 /**
  * selector - loops to select a specific function
  * @format: string format
- * @m: defines the s_type
+ * @ptr: defines the s_type
  * s_type form - struct
  *
  *
@@ -13,7 +13,7 @@
 int (*selector(char *format))(char *format, va_list)
 {
 int i;
-s_type m[] = {
+s_type ptr[] = {
 	{"%c", _printc},
 	{"%s", _prints},
 	{"%%", _percent},
@@ -23,14 +23,20 @@ if (format[1] == ' ' || format[1] == '\0')
 {
 return (NULL);
 }
-for (i = 0; m[i].q; i++)
+for (i = 0; ptr[i].q; i++)
 {
-if (format[i] == m[i].q[1])
-	return (m[i].fun);
+if (format[i] == ptr[i].q[1])
+	return (ptr[i].fun);
 }
 return (NULL);
 }
 
+/**
+ * _printf - implementation of own printf
+ * @format: format string
+ *
+ * Return: character count
+ */
 int _printf(char *format, ...)
 {
 int i;
@@ -56,7 +62,7 @@ i += s_type(q, list)
 else if (format[i] != '\0')
 {
 i += _putchar('%');
-i += _putchar(formart[1]);
+i += _putchar(format[1]);
 }
 else
 {

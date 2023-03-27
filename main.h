@@ -24,7 +24,7 @@ void _puts(char *s);
 int _printf(const char *format, ...);
 int (*selector(char *format))(char *format, va_list);
 void _percent(char *format, va_list list);
-int _printc(char *format,va_list list);
-void _prints(char *format,va_list list);
+int _printc(char *format, va_list list);
+void _prints(char *format, va_list list);
 
 #endif
