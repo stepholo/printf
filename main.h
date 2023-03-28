@@ -32,5 +32,7 @@ int printint(char *format, va_list pa);
 int integer(int number);
 int contadordigit(int number);
 int _abs(int number);
+int print_pointer(char *format, va_list list);
+int print_hex_aux(unsigned long int num);
 
 #endif

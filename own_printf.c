@@ -20,6 +20,7 @@ int (*selector(const char *format))(char *format, va_list)
 		{"%d", printint},
 		{"%i", printint},
 		{"%b", printbinary},
+		{"%p", print_pointer},
 		{NULL, NULL}
 	};
 
@@ -30,7 +31,7 @@ int (*selector(const char *format))(char *format, va_list)
 
 	for (i = 0; ptr[i].q; i++)
 	{
-		if (format[i] == ptr[i].q[1])
+		if (format[1] == ptr[i].q[1])
 			return (ptr[i].fun);
 	}
 	return (NULL);
