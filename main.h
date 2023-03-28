@@ -32,5 +32,8 @@ int printint(char *format, va_list pa);
 int integer(int number);
 int contadordigit(int number);
 int _abs(int number);
+int _printhex(char *format, va_list pa);
+int _printHEX(char *format, va_list pa);
+int _printocta(char *format, va_list pa);
 
 #endif

@@ -20,6 +20,9 @@ int (*selector(const char *format))(char *format, va_list)
 		{"%d", printint},
 		{"%i", printint},
 		{"%b", printbinary},
+		{"%x", _printhex},
+		{"%X", _printHEX},
+		{"%o", _printocta},
 		{NULL, NULL}
 	};
 
