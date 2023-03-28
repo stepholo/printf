@@ -12,7 +12,7 @@ int _printc(char *format, va_list list)
 {
 (void)format;
 _putchar(va_arg(list, int));
-return (0);
+return (1);
 }
 
 /**
@@ -48,6 +48,6 @@ int _percent(char *format, va_list list)
 {
 (void)format;
 (void)list;
-_putchar(37);
+_putchar('%');
 return (0);
 }
