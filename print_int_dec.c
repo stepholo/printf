@@ -7,7 +7,7 @@
  */
 int _printint(va_list args)
 {
-	int n = va_args(args, int);
+	int n = va_arg(args, int);
 	int num, last = n % 10, digit, exp = 1;
 	int i = 1;
 
@@ -49,15 +49,16 @@ int _printint(va_list args)
  * @args: argument to print
  * Return: number of characters printed.
  */
-int _printdec(va_list args)
+int _printdec(char *format, va_list args)
 {
 	int n = va_arg(args, int);
 	int num, last = n % 10, digit;
 	int i = 1;
 	int exp = 1;
+       (void)format;
 
 	n = n / 10;
-	num = m;
+	num = n;
 
 	if (last < 0)
 	{

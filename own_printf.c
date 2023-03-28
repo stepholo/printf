@@ -17,6 +17,7 @@ s_type ptr[] = {
 	{"%c", _printc},
 	{"%s", _prints},
 	{"%%", _percent},
+	{"%b", printbinary},
 	{NULL, NULL}
 };
 if (format[1] == ' ' || format[1] == '\0')
@@ -48,7 +49,6 @@ if (format == NULL)
 return (-1);
 q[2] = '\0';
 va_start(list, format);
-_putchar(-1);
 while (format[0])
 {
 if (format[0] == '%')
@@ -78,6 +78,5 @@ i += _putchar(format[0]);
 format++;
 }
 }
-_putchar(-2);
 return (i);
 }

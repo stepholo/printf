@@ -28,6 +28,7 @@ int _percent(char *format, va_list list);
 int _printc(char *format, va_list list);
 int _prints(char *format, va_list list);
 int _printint(va_list args);
-int _printdec(va_list args);
+int printbinary(char *format, va_list);
+int _printdec(char *format, va_list args);
 
 #endif
