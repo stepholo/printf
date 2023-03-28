@@ -25,7 +25,7 @@ return (NULL);
 }
 for (i = 0; ptr[i].q; i++)
 {
-if (format[i] == ptr[i].q[1])
+if (format[1] == ptr[i].q[1])
 	return (ptr[i].fun);
 }
 return (NULL);
@@ -60,14 +60,14 @@ q[0] = '%';
 q[1] = format[1];
 i += s_type(q, list);
 }
-else if (format[i] != '\0')
+else if (format[1] != '\0')
 {
 i += _putchar('%');
 i += _putchar(format[1]);
 }
 else
 {
-i+= _putchar('%');
+i += _putchar('%');
 break;
 }
 format += 2;
