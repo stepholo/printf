@@ -6,30 +6,34 @@
  * @ptr: defines the s_type
  * s_type form - struct
  *
- *
- *
  * Return: pointer
  */
-int (*selector (const char *format))(char *format, va_list)
+
+int (*selector(const char *format))(char *format, va_list)
 {
-int i;
-s_type ptr[] = {
-	{"%c", _printc},
-	{"%s", _prints},
-	{"%%", _percent},
-	{"%b", printbinary},
-	{NULL, NULL}
-};
-if (format[1] == ' ' || format[1] == '\0')
-{
-return (NULL);
-}
-for (i = 0; ptr[i].q; i++)
-{
-if (format[1] == ptr[i].q[1])
-	return (ptr[i].fun);
-}
-return (NULL);
+	int i;
+
+	s_type ptr[] = {
+		{"%c", _printc},
+		{"%s", _prints},
+		{"%%", _percent},
+		{"%d", _printdec},
+		{"%i", printint},
+		{"%b", printbinary},
+		{NULL, NULL}
+	};
+
+	if (format[1] == ' ' || format[1] == '\0')
+	{
+		return (NULL);
+	}
+
+	for (i = 0; ptr[i].q; i++)
+	{
+		if (format[i] == ptr[i].q[1])
+			return (ptr[i].fun);
+	}
+	return (NULL);
 }
 
 /**
@@ -40,11 +44,10 @@ return (NULL);
  */
 int _printf(const char *format, ...)
 {
-int i;
-int (*s_type)(char *, va_list);
-char q[3];
-va_list list;
-
+	int i;
+	int (*s_type)(char *, va_list);
+	char q[3];
+	va_list list;
 if (format == NULL)
 return (-1);
 q[2] = '\0';

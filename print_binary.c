@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_bin - prints a binary number
+ * printbinary - prints a binary number
  * @format: format
  * @list: argument
  *
@@ -19,7 +19,7 @@ if (numb == 0)
 {
 _putchar('0');
 count++;
-return(count);
+return (count);
 }
 while (numb > 0)
 {
