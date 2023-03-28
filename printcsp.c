@@ -5,14 +5,13 @@
  * @list: argument
  * @format: string format
  *
- *
  * Return: integer
  */
 int _printc(char *format, va_list list)
 {
-(void)format;
-_putchar(va_arg(list, int));
-return (1);
+	(void)format;
+	_putchar(va_arg(list, int));
+	return (1);
 }
 
 /**
@@ -20,20 +19,20 @@ return (1);
  * @list: argument
  * @format: string format
  *
- *
  * Return: string
  */
 int _prints(char *format, va_list list)
 {
-char *str;
-str = va_arg(list, char *);
-(void)format;
-if (str == NULL)
-{
-_puts("null");
-}
-_puts(str);
-return (0);
+	char *str;
+
+	str = va_arg(list, char *);
+	(void)format;
+	if (str == NULL)
+	{
+		_puts("null");
+	}
+	_puts(str);
+	return (0);
 }
 
 /**
@@ -41,13 +40,12 @@ return (0);
  * @format: formart
  * @list: argument
  *
- *
  * Return: percent
  */
 int _percent(char *format, va_list list)
 {
-(void)format;
-(void)list;
-_putchar('%');
-return (0);
+	(void)format;
+	(void)list;
+	_putchar('%');
+	return (0);
 }
