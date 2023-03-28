@@ -27,7 +27,9 @@ int (*selector(const char *format))(char *format, va_list);
 int _percent(char *format, va_list list);
 int _printc(char *format, va_list list);
 int _prints(char *format, va_list list);
-int _printint(va_list args);
-int _printdec(va_list args);
+int _abs(int number);
+int countdigit(int number);
+int integer(int number);
+int printint(char *format, va_list pa);
 
 #endif
