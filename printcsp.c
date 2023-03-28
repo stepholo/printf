@@ -23,16 +23,17 @@ return (0);
  *
  * Return: string
  */
-void _prints(char *format, va_list list)
+int _prints(char *format, va_list list)
 {
 char *str;
 str = va_arg(list, char *);
 (void)format;
-if (string == NULL)
+if (str == NULL)
 {
 _puts("null");
 }
 _puts(str);
+return (0);
 }
 
 /**
@@ -43,9 +44,10 @@ _puts(str);
  *
  * Return: percent
  */
-void _percent(char *format, va_list list)
+int _percent(char *format, va_list list)
 {
 (void)format;
 (void)list;
-_putchar('%');
+_putchar(37);
+return (0);
 }

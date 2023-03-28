@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stddef.h>
@@ -22,9 +23,8 @@ int (*fun)(char *format, va_list);
 int _putchar(char c);
 void _puts(char *s);
 int _printf(const char *format, ...);
-int (*selector(char *format))(char *format, va_list);
-void _percent(char *format, va_list list);
+int (*selector(const char *format))(char *format, va_list);
+int _percent(char *format, va_list list);
 int _printc(char *format, va_list list);
-void _prints(char *format, va_list list);
-
+int _prints(char *format, va_list list);
 #endif

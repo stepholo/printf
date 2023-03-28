@@ -10,7 +10,7 @@
  *
  * Return: pointer
  */
-int (*selector(char *format))(char *format, va_list)
+int (*selector (const char *format))(char *format, va_list)
 {
 int i;
 s_type ptr[] = {
@@ -37,7 +37,7 @@ return (NULL);
  *
  * Return: character count
  */
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
 int i;
 int (*s_type)(char *, va_list);
@@ -45,9 +45,10 @@ char q[3];
 va_list list;
 
 if (format == NULL)
-return (2);
+return (-1);
 q[2] = '\0';
 va_start(list, format);
+_putchar(-1);
 while (format[0])
 {
 if (format[0] == '%')
@@ -57,7 +58,7 @@ if (s_type)
 {
 q[0] = '%';
 q[1] = format[1];
-i += s_type(q, list)
+i += s_type(q, list);
 }
 else if (format[i] != '\0')
 {
@@ -66,7 +67,7 @@ i += _putchar(format[1]);
 }
 else
 {
-_putchar('%');
+i+= _putchar('%');
 break;
 }
 format += 2;
@@ -74,8 +75,8 @@ format += 2;
 else
 {
 i += _putchar(format[0]);
-}
 format++;
+}
 }
 _putchar(-2);
 return (i);
