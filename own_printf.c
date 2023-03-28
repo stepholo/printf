@@ -16,8 +16,8 @@ int (*selector(const char *format))(char *format, va_list)
 		{"%c", _printc},
 		{"%s", _prints},
 		{"%%", _percent},
-		{"%d", _printint},
-		{"%i", _printint},
+		{"%d", printint},
+		{"%i", printint},
 		{NULL, NULL}
 	};
 
