@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * printhex - prints a hexadecimal
+ * _printhex - prints a hexadecimal
  * @format: format to print hexadecimal
  * @pa: list that contains the hexadecimal
  * Return: number.
@@ -36,7 +36,7 @@ int _printhex(char *format, va_list pa)
 	return (contame);
 }
 /**
- * printHEX - prints a hexadecimal
+ * _printHEX - prints a hexadecimal
  * @format: format to print hexadecimal
  * @pa: va_list that contains the hexadecimal to print
  * Return: number of digits printed

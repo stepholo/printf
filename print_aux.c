@@ -16,7 +16,7 @@ number = 16;
 count++;
 }
 a = malloc(sizeof(long int) * count);
-for (i = count -1; i >= 0; i--)
+for (i = count - 1; i >= 0; i--)
 {
 if (a[i] > 9)
 {
