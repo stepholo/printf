@@ -16,9 +16,9 @@
  */
 typedef struct _printstruct
 {
-char *q;
-int (*fun)(char *format, va_list);
-}s_type;
+	char *q;
+	int (*fun)(char *format, va_list);
+} s_type;
 
 int _putchar(char c);
 void _puts(char *s);
@@ -27,4 +27,7 @@ int (*selector(const char *format))(char *format, va_list);
 int _percent(char *format, va_list list);
 int _printc(char *format, va_list list);
 int _prints(char *format, va_list list);
+int _printint(va_list args);
+int _printdec(va_list args);
+
 #endif
