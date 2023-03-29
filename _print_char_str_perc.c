@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf_string - prints a string
+ * printf_str - prints a string
  * @args: numberof arguements
  * @printed: the printed characters
  * Return: printed charcaters
@@ -44,9 +44,9 @@ int printf_char(va_list args, int printed)
  */
 int _percent(char *format, va_list list)
 {
-        (void)format;
-        (void)list;
-        _putchar('%');
-        return (0);
+	(void)format;
+	(void)list;
+	_putchar('%');
+	return (0);
 }
 
