@@ -18,6 +18,7 @@ int printf_str(va_list args, int printed)
 		string++;
 	}
 	return (printed);
+}
 
 /**
  * printf_char - prints a character
