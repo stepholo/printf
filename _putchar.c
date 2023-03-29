@@ -3,11 +3,10 @@
  * _putchar - user defined putchar that prints to the stdout
  * @c: variable character to be printed
  *
- * Return: 0
+ * Return: 1 success, -1 error
  */
 
 int _putchar(char c)
 {
-	write(1, &c, 1);
-	return (0);
+	return (write(1, &c, 1));
 }
