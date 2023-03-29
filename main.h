@@ -13,10 +13,10 @@ int _percent(char *format, va_list list);
 int selector(const char *format, va_list args, int printed);
 int printf_binary(unsigned int num, int printed);
 int printf_integer(va_list args, int printed);
-int _Hex_hex(unsigned int num, int printed, int uppercase);
+int Xx(unsigned int num, int printed, int uppercase);
 int printf_octal(unsigned int num, int printed);
 int printf_pointer(va_list args, int printed);
 int printf_reverse(va_list args, int printed);
-int printf_unsigned(unsigned int num, int printed);
+int printf_unsign(unsigned int num, int printed);
 
 #endif

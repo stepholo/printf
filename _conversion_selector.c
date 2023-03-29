@@ -32,13 +32,13 @@ int selector(const char *format, va_list args, int printed)
 			break;
 		case 'x':
 		case 'X':
-			printed = _Hex_hex(va_arg(args, unsigned int), printed, (*format == 'X') ? 1 : 0);
+			printed = Xx(va_arg(args, unsigned int), printed, (*format == 'X') ? 1 : 0);
 			break;
 		case 'o':
 			printed = printf_octal(va_arg(args, unsigned int), printed);
 			break;
 		case 'u':
-			printed = printf_unsigned(va_arg(args, unsigned int), printed);
+			printed = printf_unsign(va_arg(args, unsigned int), printed);
 			break;
 		case 'r':
 			printed = printf_reverse(args, printed);

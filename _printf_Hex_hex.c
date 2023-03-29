@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * _Hex_hex - prints a hexadicamal number
+ * Xx - prints a hexadicamal number
  * @num: number arguements
  * @printed: the printed characters
  * @uppercase: the uppercase equivalent
  * Return: printed charcaters
  */
 
-int _Hex_hex(unsigned int num, int printed, int uppercase)
+int Xx(unsigned int num, int printed, int uppercase)
 {
 	int hex[100], i = 0, j;
 
